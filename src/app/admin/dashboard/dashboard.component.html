@@ -1,0 +1,26 @@
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-5">
+      <div class="card text-white bg-primary mb-3 text-center">
+        <div class="card-header">THỂ LOẠI</div>
+        <div class="card-body">
+          <h5 class="card-title">{{countCategory}} Thể loại đang được cập nhật</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="card text-white bg-info mb-3 text-center">
+        <div class="card-header">BÀI VIẾT</div>
+        <div class="card-body">
+          <h5 class="card-title">{{countPost}} bài viết với {{countCategory}} thể loại khác nhau</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="chart">
+    <canvas #myCanvas>{{ chart }}</canvas>
+  </div>
+</div>
+

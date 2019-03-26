@@ -1,0 +1,33 @@
+<div class="card my-4">
+  <h5 class="card-header">Bình luận:</h5>
+  <div class="card-body">
+    <form #myForm="ngForm">
+      <div class="form-group col-3 p-0">
+        <label>Tên</label>
+        <input type="text" class="form-control form-control-sm " name="user" [(ngModel)]="comment.user" #user="ngModel" required>
+        <div *ngIf="user.invalid && (user.dirty || user.touched)">
+          <div *ngIf="user.errors.required">
+            <small class="form-text text-muted alert alert-danger"> <i  class="fa fa-exclamation-triangle"></i> Nhập tên</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Mô tả</label>
+        <textarea class="form-control" rows="3" name="content" [(ngModel)]="comment.content" #content="ngModel" required></textarea>
+        <div *ngIf="content.invalid && (content.dirty || content.touched)">
+          <div *ngIf="content.errors.required">
+            <small class="form-text text-muted alert alert-danger"> <i  class="fa fa-exclamation-triangle"></i> Nhập nội dung</small>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!myForm.form.valid" (click)="sendComment()">Gửi</button>
+    </form>
+  </div>
+</div>
+<div class="media mb-4" *ngFor="let item of comments">
+  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+  <div class="media-body">
+    <h5 class="mt-0">{{item.user}}</h5>
+    {{item.content}}.
+  </div>
+</div>
