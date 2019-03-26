@@ -15,10 +15,12 @@ export class CategoryService {
 
   // Create Category
   addCategory(category: Category) {
-    this.categoriesRef.push({
+   return this.categoriesRef.push({
       name: category.name
     });
   }
+
+ 
 
   // Fetch Single Category Object
   getCategory(id: string) {
@@ -34,15 +36,14 @@ export class CategoryService {
 
   // Update Category Object
   updateCategory(category: Category) {
-    this.categoryRef.update({
+    return this.categoryRef.update({
       name: category.name,
-
     });
   }
 
   // Delete Category Object
-  deleteCategory(id: string) {
+  deleteCategory(id: string){
     this.categoryRef = this.db.object('Category/' + id);
-    this.categoryRef.remove();
+    return this.categoryRef.remove();
   }
 }

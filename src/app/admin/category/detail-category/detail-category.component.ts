@@ -30,32 +30,31 @@ export class DetailCategoryComponent implements OnInit {
     }else{
       this.categoryService.getCategoryList();
     }
-   
-    
   }
 
+  add(): void {
+    this.category = new Category();
+  }
 
-  save(): void {
-  
+  save() {
     if(this.category.$key){
-      this.categoryService.updateCategory(this.category);
-      setTimeout(() => {
-        this.toastr.success('You are update It Successfully!');
-      });
+      this.categoryService.updateCategory(this.category).then(
+        res => {
+          this.toastr.success('You are update It Successfully!');
+        }, error => {
+          this.toastr.error('You are update failure!')
+        })
     }else{
-      this.categoryService.addCategory(this.category);
-      setTimeout(() => {
-        this.toastr.success('You are add new It Successfully!');
-      });
-      this.category = new Category();
+      this.categoryService.addCategory(this.category).then(
+        res => {
+          this.toastr.success('You are add new It Successfully!');
+          this.category = new Category();
+        },error=>{
+          this.toastr.error('You are add new failure!')
+        })
     }
-    
   }
   back() {
     this.location.back();
-  }
-
-  showSuccess() {
-    this.toastr.success('You are Got It Successfully!');
   }
 }

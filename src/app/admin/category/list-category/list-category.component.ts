@@ -3,6 +3,7 @@ import {Category} from '../../../model/category';
 import {CategoryService} from '../../../service/category.service';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-list-category',
   templateUrl: './list-category.component.html',
@@ -16,7 +17,8 @@ export class ListCategoryComponent implements OnInit {
   p = 1;
 
   constructor(private categoryService: CategoryService,
-              private modalService: BsModalService) {
+              private modalService: BsModalService,
+              private toastr: ToastrService) {
   }
   ngOnInit() {
     this.categoryService.getCategoryList().snapshotChanges().subscribe(data => {
@@ -36,8 +38,18 @@ export class ListCategoryComponent implements OnInit {
   }
 
   confirmDelete(key: string): void {
-    this.categoryService.deleteCategory(key);
-    this.modalRef.hide();
+    console.log(key);
+    this.categoryService.deleteCategory(key).then(
+      res => {
+        this.modalRef.hide();
+        setTimeout(() => {
+          this.toastr.success('You are delete It Successfully!');
+        });
+
+      },error=>{
+
+      })
+    
   }
 
 

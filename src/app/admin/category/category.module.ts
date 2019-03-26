@@ -24,8 +24,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ModalModule.forRoot(),
     PipeModule,
     NgxPaginationModule  // NGX pagination module
-  
-   
   ],
   providers: [CategoryService]
 })

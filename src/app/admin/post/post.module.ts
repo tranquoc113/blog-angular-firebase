@@ -9,6 +9,8 @@ import {PostRoutingModule} from './post-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {ModalModule, PaginationModule} from 'ngx-bootstrap';
+import { NgxEditorModule } from 'ngx-editor';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [ListPostComponent, DetailPostComponent],
   imports: [
@@ -18,7 +20,9 @@ import {ModalModule, PaginationModule} from 'ngx-bootstrap';
     FormsModule,
     ModalModule.forRoot(),
     PipeModule,
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    NgxEditorModule,
+    NgxPaginationModule  // NGX pagination module
   ],
   providers: [PostService, CategoryService]
 })

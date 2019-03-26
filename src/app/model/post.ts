@@ -1,11 +1,12 @@
 export class Post {
-  id: string;
+  $key: string;
   title: string;
-  content: string;
+  content = null;
   slug: string;
   avatar: any;
-  date: number;
-  active: boolean;
+  date_post = 0;
+  date_update =0 ;
+  active = false;
   comment_count = 0;
-  category_id: number;
+  category_name: string;
 }

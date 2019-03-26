@@ -20,7 +20,7 @@
        <td>{{item.name}}</td>
        <td>
         <span class="fts-100 badge badge-primary active" [routerLink]="['../detail', item.$key]"><i class="fa fa-edit"></i></span>
-        <span class="ml-1 fts-100 badge badge-danger active"><i class="fa fa-trash" (click)="openModal(template, item)"></i></span>
+        <span class="ml-1 fts-100 badge badge-danger active" (click)="openModal(template, item)"><i class="fa fa-trash" ></i></span>
       </td>
      </tr>
       </tbody>
