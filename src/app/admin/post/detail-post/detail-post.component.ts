@@ -24,8 +24,9 @@ export class DetailPostComponent implements OnInit {
               private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.getCategories();
+    
     const id = this.route.snapshot.paramMap.get('id');  // Getting current component's id or information using ActivatedRoute service
+    this.getCategories(id);
     if(id){
       this.postService.getPost(id).valueChanges().subscribe(data => {
         this.post = data;
@@ -34,7 +35,6 @@ export class DetailPostComponent implements OnInit {
       })
     }else{
       this.getPostList();
-      this.post.category_name = this.categories[0].name;
     }
     
    
@@ -70,13 +70,17 @@ export class DetailPostComponent implements OnInit {
     this.location.back();
   }
 
-  private  getCategories(): void {
+  private  getCategories(id): void {
     this.categoryService.getCategoryList().snapshotChanges().subscribe(data => {
       data.forEach(item => {
         let a = item.payload.toJSON(); 
         a['$key'] = item.key;
         this.categories.push(a as Category);
       })
+      if(!id){
+        this.post.category_name = this.categories[0].name;
+      }
+      
     });
   }
 
