@@ -984,6 +984,7 @@ background: url("./assets/images/banner-sm-item-1.html") no-repeat;
   display: block;
   overflow: hidden;
   position: relative;
+  width: 45%;
 }
 .post_section .post_section_inner .left_sidebar .feature_post_area .feature_post .feture_img img {
   max-width: 100%;

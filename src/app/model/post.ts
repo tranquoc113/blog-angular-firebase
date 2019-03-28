@@ -8,5 +8,6 @@ export class Post {
   date_update =0 ;
   active = false;
   comment_count = 0;
+  description = null;
   category_name: string;
 }

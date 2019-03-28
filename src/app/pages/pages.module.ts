@@ -11,7 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { CommentPostComponent } from './comment-post/comment-post.component';
 import {FormsModule} from '@angular/forms';
 import { PagePostComponent } from './page-post/page-post.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [PagesComponent,
     PageHomeComponent,
@@ -23,7 +23,8 @@ import { PagePostComponent } from './page-post/page-post.component';
     CommonModule,
     PagesRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule  // NGX pagination module
   ],
   providers: [
     CategoryService,

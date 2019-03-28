@@ -38,18 +38,13 @@ export class ListCategoryComponent implements OnInit {
   }
 
   confirmDelete(key: string): void {
-    console.log(key);
     this.categoryService.deleteCategory(key).then(
       res => {
         this.modalRef.hide();
-        setTimeout(() => {
-          this.toastr.success('You are delete It Successfully!');
-        });
-
+        this.toastr.success('You are delete It Successfully!');
       },error=>{
-
+        this.toastr.error('You are delete Failure!');
       })
-    
   }
 
 

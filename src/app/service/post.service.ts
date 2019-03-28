@@ -21,7 +21,8 @@ export class PostService {
      date_post: post.date_post,
      date_update: post.date_update,
      active: post.active,
-     category_name: post.category_name
+     category_name: post.category_name,
+     description: post.description
     });
   }
 
@@ -48,7 +49,8 @@ export class PostService {
      date_post: post.date_post,
      date_update: post.date_update,
      active: post.active,
-     category_name: post.category_name
+     category_name: post.category_name,
+     description: post.description
     });
   }
 
