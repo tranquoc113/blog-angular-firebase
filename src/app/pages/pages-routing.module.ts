@@ -11,7 +11,7 @@ const routes: Routes = [
     component: PagesComponent,
     children: [
       {path: '', component: PageHomeComponent},
-      {path: 'detail', component: SinglePostComponent},
+      {path: 'detail/:id', component: SinglePostComponent},
       {path: 'page/:id', component: PagePostComponent}
     ]
   }

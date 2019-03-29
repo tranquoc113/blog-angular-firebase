@@ -34,6 +34,12 @@ export class PostService {
    return  this.postRef;
   }
 
+    // // Fetch Single Post Object Slug
+    // getPostBySlug(slug: string) {
+    //   this.postRef = this.db.object('Post/' + `${slug.$key}`);
+    //   return  this.postRef;
+    //  } 
+
   // Fetch Posts List
   getPostList() {
    return this.postsRef = this.db.list('Post');

@@ -17,6 +17,14 @@ export class SinglePostComponent implements OnInit {
               private commentService: CommentService) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');  // Getting current component's id or information using ActivatedRoute service
+    if(id){
+      this.postService.getPost(id).valueChanges().subscribe(data => {
+        this.post = data;
+        console.log(this.post);
+      })
+    }
+    
   }
 
 }

@@ -3,7 +3,7 @@
           <div class="col-12" *ngFor="let item of posts | paginate: { itemsPerPage: 03, currentPage: p }; let i= index">
             <div class="media feature_post">
               <div class="feture_img">
-                <a routerLink="/detail" routerLinkActive="active"><img  [src]="item.avatar" alt="" ></a>
+                <a [routerLink]="['detail',item.$key]" routerLinkActive="active"><img  [src]="item.avatar" alt="" ></a>
                 <ul class="special_share">
                   <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                   <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -11,7 +11,7 @@
                 </ul>
               </div>
               <div class="media-body feture_content">
-                <a routerLink="/detail" routerLinkActive="active" class="f_heding">{{item.title}}</a>
+                <a [routerLink]="['detail',item.$key]" routerLinkActive="active" class="f_heding">{{item.title}}</a>
                 <h6>{{item.date_update | date: 'dd-MM-yyyy'}} <span>|</span><a href="http://emran-khan.com/">Emran Khan</a></h6>
                 <p>{{item.description | slice: 0: 150}}</p>
               </div>
